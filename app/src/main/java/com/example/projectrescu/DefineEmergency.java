@@ -9,17 +9,17 @@ import android.widget.Button;
 import android.widget.EditText;
 
 public class DefineEmergency extends AppCompatActivity {
-    Button button;
+    Button button2;
     EditText inp;
     String st;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_define_emergency);
-        button=(Button) findViewById(R.id.button2);
+        button2=(Button) findViewById(R.id.button2);
         inp=(EditText) findViewById(R.id.editTextTextPersonName);
 
-        button.setOnClickListener(new View.OnClickListener() {
+        button2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent=new Intent(DefineEmergency.this, HomeActivity.class);

@@ -20,7 +20,7 @@ public class HomeActivity extends AppCompatActivity {
         setContentView(R.layout.activity_home);
 
         outp=findViewById(R.id.textView7);
-        st=getIntent().getExtras().getString("Emergency: ");
+        st=getIntent().getStringExtra("Emergency: ");
         outp.setText(st);
 
         button=(Button) findViewById(R.id.button);
