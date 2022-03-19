@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:background="@color/white"
     android:layout_height="match_parent"
     tools:context=".DefineEmergency">
 
@@ -58,7 +59,9 @@
         android:layout_marginTop="124dp"
         android:layout_marginEnd="16dp"
         android:ems="10"
+        android:textColor="@color/black"
         android:hint="Example: Office"
+        android:textColorHint="#808080"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -73,6 +76,8 @@
         android:layout_marginEnd="16dp"
         android:ems="10"
         android:hint="Name, Contact number"
+        android:textColor="@color/black"
+        android:textColorHint="#808080"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -86,6 +91,8 @@
         android:layout_marginTop="329dp"
         android:ems="10"
         android:hint="Example: Boss is here"
+        android:textColor="@color/black"
+        android:textColorHint="#808080"
         android:inputType="textPersonName"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -94,9 +101,33 @@
         android:id="@+id/button2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="146dp"
-        android:layout_marginTop="512dp"
+        android:layout_marginStart="136dp"
+        android:layout_marginTop="552dp"
         android:text="Add Emergency"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Switch
+        android:id="@+id/switch1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="186dp"
+        android:layout_marginTop="453dp"
+        android:text="Send Location details"
+        android:textColor="@color/black"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView10"
+        android:layout_width="101dp"
+        android:layout_height="31dp"
+        android:layout_marginStart="48dp"
+        android:layout_marginTop="452dp"
+        android:hint="Share location"
+        android:text=""
+        android:textColor="@color/black"
+        android:textColorHint="#808080"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
