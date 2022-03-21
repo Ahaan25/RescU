@@ -43,8 +43,8 @@ public class DefineEmergency extends AppCompatActivity {
             public void onClick(View view) {
                 AlertDialog.Builder builder=new AlertDialog.Builder(DefineEmergency.this);
                 builder.setCancelable(true);
-                builder.setTitle("This emergency will send location details to emergency contacts");
-                builder.setMessage("This is an alert");
+                builder.setTitle("Alert!");
+                builder.setMessage("This emergency will send location details to emergency contacts");
 
                 builder.setNegativeButton("Cancel", new DialogInterface.OnClickListener() {
                     @Override
