@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 
 public class HomeActivity extends AppCompatActivity {
@@ -26,8 +27,7 @@ public class HomeActivity extends AppCompatActivity {
         button=(Button) findViewById(R.id.button);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) {
-                openDefineEmergency();
+            public void onClick(View v) { openDefineEmergency();
             }
         });
     }
