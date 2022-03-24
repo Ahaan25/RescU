@@ -15,7 +15,8 @@ import android.widget.TextView;
 public class DefineEmergency extends AppCompatActivity {
     Button button2;
     EditText inp;
-    EditText nameno;
+    EditText name;
+    EditText number;
     EditText message;
     String st;
     Switch s;
@@ -27,8 +28,9 @@ public class DefineEmergency extends AppCompatActivity {
         setContentView(R.layout.activity_define_emergency);
         button2=(Button) findViewById(R.id.button2);
         inp=(EditText) findViewById(R.id.emergencyname);
-        nameno=(EditText) findViewById(R.id.emergencycontact);
+        name=(EditText) findViewById(R.id.emergencycontactname);
         message=(EditText) findViewById(R.id.emergencymessage);
+        number=(EditText) findViewById(R.id.emergencycontactnumber);
 
         button2.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -81,7 +83,8 @@ public class DefineEmergency extends AppCompatActivity {
                 public void onClick(View view) {
                     s.setChecked(false);
                     inp.setText(null);
-                    nameno.setText(null);
+                    name.setText(null);
+                    number.setText(null);
                     message.setText(null);
                 }
             });
