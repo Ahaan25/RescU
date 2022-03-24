@@ -32,6 +32,7 @@ public class DefineEmergency extends AppCompatActivity {
         message=(EditText) findViewById(R.id.emergencymessage);
         number=(EditText) findViewById(R.id.emergencycontactnumber);
 
+
         button2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

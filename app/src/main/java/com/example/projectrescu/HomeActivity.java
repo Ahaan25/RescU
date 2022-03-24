@@ -15,6 +15,7 @@ public class HomeActivity extends AppCompatActivity {
     TextView outp;
     String st;
     Button button;
+    Button gesturebutton1;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
