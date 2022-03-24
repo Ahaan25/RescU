@@ -26,9 +26,9 @@ public class DefineEmergency extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_define_emergency);
         button2=(Button) findViewById(R.id.button2);
-        inp=(EditText) findViewById(R.id.editTextTextPersonName);
-        nameno=(EditText) findViewById(R.id.editTextTextPersonName2);
-        message=(EditText) findViewById(R.id.editTextTextPersonName3);
+        inp=(EditText) findViewById(R.id.emergencyname);
+        nameno=(EditText) findViewById(R.id.emergencycontact);
+        message=(EditText) findViewById(R.id.emergencymessage);
 
         button2.setOnClickListener(new View.OnClickListener() {
             @Override
