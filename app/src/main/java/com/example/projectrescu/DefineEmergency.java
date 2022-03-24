@@ -40,6 +40,8 @@ public class DefineEmergency extends AppCompatActivity {
                 finish();
             }
         });
+
+
 // switch button location prompt code here
         s=(Switch) findViewById(R.id.switch1);
         loc=(TextView) findViewById(R.id.textView10);

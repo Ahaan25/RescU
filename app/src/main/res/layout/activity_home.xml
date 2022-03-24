@@ -46,12 +46,12 @@
         android:id="@+id/textView7"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="56dp"
-        android:layout_marginTop="216dp"
-        android:textColor="@color/black"
-        android:textColorHint="#808080"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="212dp"
         android:background="@drawable/textview_border_2"
         android:hint="Emergency will be displayed here"
+        android:textColor="@color/black"
+        android:textColorHint="#808080"
         android:textSize="15dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -60,13 +60,13 @@
         android:id="@+id/textView8"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="56dp"
-        android:layout_marginTop="320dp"
-        android:textSize="15dp"
-        android:textColor="@color/black"
-        android:textColorHint="#808080"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="316dp"
         android:background="@drawable/textview_border_2"
         android:hint="Emergency will be displayed here"
+        android:textColor="@color/black"
+        android:textColorHint="#808080"
+        android:textSize="15dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -74,13 +74,46 @@
         android:id="@+id/textView9"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="56dp"
-        android:layout_marginTop="420dp"
-        android:textSize="15dp"
-        android:textColor="@color/black"
-        android:textColorHint="#808080"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="412dp"
         android:background="@drawable/textview_border_2"
         android:hint="Emergency will be displayed here"
+        android:textColor="@color/black"
+        android:textColorHint="#808080"
+        android:textSize="15dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/button4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="244dp"
+        android:layout_marginTop="200dp"
+        android:text="Set button order"
+        android:textColor="@color/black"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/button5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="244dp"
+        android:layout_marginTop="300dp"
+        android:text="Set button order"
+        android:textColor="@color/black"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/button6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="244dp"
+        android:layout_marginTop="396dp"
+        android:text="Set button order"
+        android:textColor="@color/black"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
