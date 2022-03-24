@@ -15,7 +15,7 @@ public class HomeActivity extends AppCompatActivity {
     TextView outp;
     String st;
     Button button;
-    Button gesturebutton1;
+    Button execute;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,7 +28,16 @@ public class HomeActivity extends AppCompatActivity {
         button=(Button) findViewById(R.id.button);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v) { openDefineEmergency();
+            public void onClick(View v) {
+                openDefineEmergency();
+            }
+        });
+
+        execute=(Button) findViewById(R.id.button7);
+        execute.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                openGestureScreen();
             }
         });
     }
@@ -37,5 +46,10 @@ public class HomeActivity extends AppCompatActivity {
         Intent intent=new Intent(this, DefineEmergency.class);
         startActivity(intent);
 
+    }
+
+    public void openGestureScreen(){
+        Intent intent=new Intent(this, gesturescreen.class);
+        startActivity(intent);
     }
 }

@@ -11,6 +11,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ProjectRescu">
         <activity
+            android:name=".gesturescreen"
+            android:exported="false" />
+        <activity
             android:name=".DefineEmergency"
             android:exported="false" />
         <activity
