@@ -6,9 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
 
 
 public class HomeActivity extends AppCompatActivity {
@@ -49,7 +47,7 @@ public class HomeActivity extends AppCompatActivity {
     }
 
     public void openGestureScreen(){
-        Intent intent=new Intent(this, gesturescreen.class);
+        Intent intent=new Intent(this, GestureScreen.class);
         startActivity(intent);
     }
 }
