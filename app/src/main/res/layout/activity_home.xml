@@ -34,7 +34,7 @@
         android:id="@+id/button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="244dp"
+        android:layout_marginStart="264dp"
         android:layout_marginTop="564dp"
         android:background="@drawable/circlebutton"
         android:text="Add emergencies"
@@ -114,6 +114,18 @@
         android:layout_marginTop="396dp"
         android:text="Set button order"
         android:textColor="@color/black"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/button7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="52dp"
+        android:layout_marginTop="564dp"
+        android:text="Execute"
+        android:textSize="9dp"
+        android:background="@drawable/circlebutton"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
