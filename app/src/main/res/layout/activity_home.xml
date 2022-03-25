@@ -9,13 +9,14 @@
 
     <TextView
         android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="78dp"
+        android:layout_width="381dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="76dp"
         android:background="@drawable/textview_border"
-        android:text="Welcome to RESCU, the only app you will ever need for your emergencies"
+        android:text="   Welcome to RESCU, the only app you will ever need for \n   your emergencies"
         android:textColor="@color/black"
-        android:textSize="20dp"
+        android:textSize="15dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
