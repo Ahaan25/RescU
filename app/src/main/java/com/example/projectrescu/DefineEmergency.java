@@ -12,29 +12,90 @@ import android.widget.EditText;
 import android.widget.Switch;
 import android.widget.TextView;
 
+import java.io.EOFException;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutput;
+import java.io.ObjectOutputStream;
+import java.util.ArrayList;
+import java.util.Arrays;
+
 public class DefineEmergency extends AppCompatActivity {
+    ObjectOutputStream out;
+    String filename = "dataFile.srl";
     Button button2;
-    EditText inp;
+    EditText eN;
+    EditText eD;
+    EditText eP;
     String st;
     Switch s;
+    ArrayList<Emergency> currentEmergencies=new ArrayList<>();
     TextView loc;
+    Emergency emerItem = new Emergency();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        try {
+            File dataStore = new File(getFilesDir(),"" + File.separator + filename);
+            dataStore.createNewFile();
+            ObjectInputStream input = new ObjectInputStream(new FileInputStream(dataStore));
+            Emergency[] emer = (Emergency[]) input.readObject();
+            currentEmergencies = new ArrayList<Emergency>(Arrays.asList(emer));
+            input.close();
+        }
+        catch(FileNotFoundException e){
+            e.printStackTrace();
+        }
+        catch(EOFException e){}
+
+        catch (IOException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
         setContentView(R.layout.activity_define_emergency);
         button2=(Button) findViewById(R.id.button2);
-        inp=(EditText) findViewById(R.id.editTextTextPersonName);
+        eN=(EditText) findViewById(R.id.emerName);
+        eD = (EditText) findViewById(R.id.emerDesc);
+        eP = (EditText) findViewById(R.id.emerNum);
+
 
         button2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent=new Intent(DefineEmergency.this, HomeActivity.class);
-                st=inp.getText().toString();
-                intent.putExtra("Emergency: ", st);
+                st=eN.getText().toString();
+                emerItem.EmergencyName = st;
+                st=eD.getText().toString();
+                emerItem.EmergencyMessage = st;
+                st=eP.getText().toString();
+                emerItem.phoneNumbers = st;
+                currentEmergencies.add(emerItem);
+                try{
+                    out = new ObjectOutputStream(new FileOutputStream(new File(getFilesDir(),"")+File.separator+filename));
+                    Emergency[] emer = new Emergency[currentEmergencies.size()];
+                    currentEmergencies.toArray(emer);
+                    out.writeObject(emer);
+                    out.close();
+                }
+                catch (FileNotFoundException e){
+                    e.printStackTrace();
+                }
+                catch(IOException e){
+                    e.printStackTrace();
+                }
+
+
+              // intent.putExtra("Emergency: ", st);
                 startActivity(intent);
                 finish();
             }
         });
+
 // switch button location prompt code here
         s=(Switch) findViewById(R.id.switch1);
         loc=(TextView) findViewById(R.id.textView10);

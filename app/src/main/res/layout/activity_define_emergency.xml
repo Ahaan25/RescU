@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     tools:context=".DefineEmergency">
 
-    <TextView
+  */  <TextView
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -52,7 +52,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName"
+        android:id="@+id/emerName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="186dp"
@@ -68,14 +68,14 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName2"
+        android:id="@+id/emerNum"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="186dp"
         android:layout_marginTop="217dp"
         android:layout_marginEnd="16dp"
         android:ems="10"
-        android:hint="Name, Contact number"
+        android:hint="Contact number"
         android:textColor="@color/black"
         android:textColorHint="#808080"
         android:inputType="textPersonName"
@@ -84,7 +84,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName3"
+        android:id="@+id/emerDesc"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="186dp"
