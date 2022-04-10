@@ -7,9 +7,11 @@
         <entry key="..\:/Android Studio/ProjectRescu/app/src/main/res/drawable/textview_border.xml" value="0.2555" />
         <entry key="..\:/Android Studio/ProjectRescu/app/src/main/res/drawable/textview_border_2.xml" value="0.2555" />
         <entry key="..\:/Android Studio/ProjectRescu/app/src/main/res/layout/activity_define_emergency.xml" value="0.25" />
+        <entry key="..\:/Android Studio/ProjectRescu/app/src/main/res/layout/activity_gesturescreen.xml" value="0.25" />
         <entry key="..\:/Android Studio/ProjectRescu/app/src/main/res/layout/activity_home.xml" value="0.264" />
         <entry key="..\:/Android Studio/ProjectRescu/app/src/main/res/layout/activity_main.xml" value="0.25" />
-        <entry key="..\:/Projcts/PE-II/app/src/main/res/layout/activity_define_emergency.xml" value="0.1" />
+        <entry key="..\:/Projcts/PE-II/app/src/main/res/layout/activity_define_emergency.xml" value="0.264" />
+        <entry key="..\:/Projcts/PE-II/app/src/main/res/layout/activity_gesturescreen.xml" value="0.25416666666666665" />
         <entry key="..\:/Projcts/PE-II/app/src/main/res/layout/activity_home.xml" value="0.264" />
         <entry key="..\:/Projcts/PE-II/app/src/main/res/layout/list_item.xml" value="0.264" />
       </map>
