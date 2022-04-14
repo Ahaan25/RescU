@@ -31,6 +31,8 @@ public class DefineEmergency extends AppCompatActivity {
     EditText eN;
     EditText eD;
     EditText eP;
+    EditText eP2;
+    EditText eP3;
     String st;
     Switch s;
     ArrayList<Emergency> currentEmergencies=new ArrayList<>();
@@ -62,6 +64,8 @@ public class DefineEmergency extends AppCompatActivity {
         eN=(EditText) findViewById(R.id.emerName);
         eD = (EditText) findViewById(R.id.emerDesc);
         eP = (EditText) findViewById(R.id.emerNum);
+        eP2 = (EditText) findViewById(R.id.emerNum2);
+        eP3 = (EditText) findViewById(R.id.emerNum3);
 
 
         button2.setOnClickListener(new View.OnClickListener() {
@@ -73,7 +77,13 @@ public class DefineEmergency extends AppCompatActivity {
                 st=eD.getText().toString();
                 emerItem.EmergencyMessage = st;
                 st=eP.getText().toString();
-                emerItem.phoneNumbers = st;
+                emerItem.phoneNumbers[0]=st;
+                st=eP2.getText().toString();
+                emerItem.phoneNumbers[1]=st;
+                st=eP3.getText().toString();
+                emerItem.phoneNumbers[2]=st;
+
+
                 currentEmergencies.add(emerItem);
                 try{
                     out = new ObjectOutputStream(new FileOutputStream(new File(getFilesDir(),"")+File.separator+filename));

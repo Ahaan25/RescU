@@ -33,7 +33,11 @@ public class EmergencyAdapter extends ArrayAdapter<Emergency> {
         TextView eNumbers = (TextView) rowView.findViewById(R.id.PhoneNumbers);
         eName.setText(emergencies.get(position).EmergencyName);
         eDescription.setText(emergencies.get(position).EmergencyMessage);
-        eNumbers.setText(emergencies.get(position).phoneNumbers);
+        String phoneString = "";
+        for ( String item : emergencies.get(position).phoneNumbers){
+            phoneString += (item+" ");
+        }
+        eNumbers.setText(phoneString);
 
         return rowView;
     }
