@@ -1,15 +1,26 @@
 package com.example.projectrescu;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import com.example.projectrescu.DefineEmergency;
+import com.google.android.gms.location.FusedLocationProviderClient;
+import com.google.android.gms.location.LocationServices;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
 import android.Manifest;
+import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.location.Location;
+import android.location.LocationManager;
 import android.os.Bundle;
+import android.provider.Settings;
 import android.sax.EndElementListener;
 import android.util.Log;
 import android.view.View;
@@ -46,11 +57,12 @@ public class HomeActivity extends AppCompatActivity {
     private ArrayList<Emergency> emergencies = new ArrayList<>();
     private EmergencyAdapter itemsAdapter;
     private ListView lsView;
+    FusedLocationProviderClient fusedLocationProviderClient;
     Map<String, String> numDict  = new HashMap<String, String>();
     String filename = "dataFile.srl";
 
     TextView outp;
-    String st;
+    public static String st;
     Button button;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -83,8 +95,59 @@ public class HomeActivity extends AppCompatActivity {
 
         }
         lsView.setAdapter(itemsAdapter);
+        button = findViewById(R.id.button);
+
+        fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(
+                HomeActivity.this
+        );
+
+        if (ActivityCompat.checkSelfPermission(HomeActivity.this, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(HomeActivity.this, Manifest.permission.ACCESS_COARSE_LOCATION) == PackageManager.PERMISSION_GRANTED){
+            //When both permission are granted
+            //call method
+            getCurrentLocation();
+        }else{
+            ActivityCompat.requestPermissions(HomeActivity.this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION,Manifest.permission.ACCESS_COARSE_LOCATION} , 100);
+        }
 
 
+
+    }
+
+
+    @SuppressLint("MissingPermission")
+    private void getCurrentLocation() {
+        // Initialize location manager
+        LocationManager locationManager = (LocationManager) getSystemService(
+                Context.LOCATION_SERVICE
+        );
+        //Check Condition
+        if(locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER)
+                || locationManager.isProviderEnabled(LocationManager.NETWORK_PROVIDER)){
+            //when Location service is enabled
+            // get last location
+            fusedLocationProviderClient.getLastLocation().addOnCompleteListener(new OnCompleteListener<Location>() {
+                @Override
+                public void onComplete(@NonNull Task<Location> task) {
+                    // Initialize  location
+                    Location location = task.getResult();
+                    // check condition
+                    if(location!=null){
+                        //When location result is not null
+                        //set latitude
+                        double latitude = location.getLatitude();
+                        double longitude = location.getLongitude();
+
+                        st= "https://maps.google.com/?q="+latitude+","+longitude;
+
+
+                    }
+
+                }
+            });
+
+        }else{
+            startActivity(new Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS).setFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
+        }
     }
 
     public void openDefineEmergency(View v){
@@ -105,6 +168,7 @@ public class HomeActivity extends AppCompatActivity {
         TextView emerPhone = (TextView) parentItem.findViewById(R.id.PhoneNumbers);
         String phoneNums = emerPhone.getText().toString();
         String message = emerMessage.getText().toString();
+        message = message + System.lineSeparator() +"Location of person : - "+ st;
         String[] phoneNumbers = phoneNums.split(" ",0);
         AddToDict(message,phoneNumbers);
             if (ContextCompat.checkSelfPermission(this,
@@ -123,10 +187,12 @@ public class HomeActivity extends AppCompatActivity {
 @Override
 public void onRequestPermissionsResult(int requestCode,String permissions[], int[] grantResults) {
     super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+
     switch (requestCode) {
         case 0: {
             if (grantResults.length > 0
                     && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                getCurrentLocation();
                 SmsManager smsManager = SmsManager.getDefault();
                 for(Map.Entry<String,String> m:numDict.entrySet()){
                     smsManager.sendTextMessage(m.getKey(),null,m.getValue(),null,null);

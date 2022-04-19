@@ -2,15 +2,21 @@ package com.example.projectrescu;
 
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
 
+import android.Manifest;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Switch;
 import android.widget.TextView;
+
+import com.google.android.gms.location.FusedLocationProviderClient;
+import com.google.android.gms.location.LocationServices;
 
 import java.io.EOFException;
 import java.io.File;
@@ -24,7 +30,7 @@ import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-public class DefineEmergency extends AppCompatActivity {
+public class DefineEmergency extends AppCompatActivity{
     ObjectOutputStream out;
     String filename = "dataFile.srl";
     Button button2;
@@ -33,14 +39,20 @@ public class DefineEmergency extends AppCompatActivity {
     EditText eP;
     EditText eP2;
     EditText eP3;
-    String st;
+    String st ;
     Switch s;
+
     ArrayList<Emergency> currentEmergencies=new ArrayList<>();
     TextView loc;
     Emergency emerItem = new Emergency();
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_define_emergency);
+
+        
         try {
             File dataStore = new File(getFilesDir(),"" + File.separator + filename);
             dataStore.createNewFile();
@@ -133,7 +145,5 @@ public class DefineEmergency extends AppCompatActivity {
                 builder.show();
             }
         });
-
-//prompt code ends here
     }
 }
