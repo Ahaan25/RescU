@@ -9,43 +9,52 @@
     android:textAlignment="center"
     tools:context=".HomeActivity">
 
-    <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="match_parent"
-        android:layout_height="86dp"
-        app:srcCompat="@drawable/rescu" />
-
     <TextView
         android:id="@+id/textView"
 
         android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_marginTop="1dp"
-        android:background="#0F2D7A"
+        android:layout_height="78dp"
+        android:background="@drawable/dropshadowitem"
+        android:fontFamily="@font/open_sans_bold"
         android:gravity="center"
-        android:text="My Emergencies"
+        android:text="Emergencies"
         android:textAlignment="center"
         android:textColor="#ffffff"
-        android:textSize="20dp" />
-
+        android:textSize="30dp"
+        android:elevation="30dp"
+        tools:ignore="TextContrastCheck" />
+<FrameLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginTop="10dp"
+    >
     <ListView
         android:id="@+id/lvItems"
         android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_height="wrap_content"
         android:layout_weight="1"
-        android:background="#FFFFFF" />
+        android:background="#FFFFFF"
+        android:divider="@android:color/transparent"
+        android:dividerHeight="10.0sp">
 
-    <Button
+    </ListView>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/button"
-        android:layout_width="match_parent"
-        android:layout_height="55dp"
-        android:layout_marginBottom="0dp"
-        android:background="@drawable/textview_border"
-        android:backgroundTint="#0F2D7A"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:src="@drawable/circlebutton"
+        android:layout_gravity="end|bottom"
+        android:layout_margin="16dp"
+        android:clickable="true"
         android:onClick="openDefineEmergency"
-        android:text="+"
-        android:textColor="@color/white"
-        android:textSize="40dp" />
+        android:scaleType="center"
+        android:background="@android:color/transparent"
+        app:backgroundTint="@android:color/transparent"
+        android:outlineProvider="none"
+        app:fabSize="normal"
+        tools:ignore="SpeakableTextPresentCheck"
+        />
 
-
+</FrameLayout>
 </LinearLayout>

@@ -7,6 +7,7 @@ import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationServices;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
@@ -22,6 +23,7 @@ import android.location.LocationManager;
 import android.os.Bundle;
 import android.provider.Settings;
 import android.sax.EndElementListener;
+import android.telephony.SubscriptionManager;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
@@ -63,10 +65,11 @@ public class HomeActivity extends AppCompatActivity {
 
     TextView outp;
     public static String st;
-    Button button;
+    FloatingActionButton button;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         try {
             File dataStore = new File(getFilesDir(),"" + File.separator + filename);
             dataStore.createNewFile();
@@ -162,6 +165,20 @@ public class HomeActivity extends AppCompatActivity {
         }
     }
 
+    public void sendTexts(){
+        getCurrentLocation();
+
+        int defaultSubscriptionId = SmsManager.getDefaultSmsSubscriptionId();
+        SmsManager smsManager = SmsManager.getSmsManagerForSubscriptionId(defaultSubscriptionId);
+
+        for(Map.Entry<String,String> m:numDict.entrySet()){
+            smsManager.sendTextMessage(m.getKey(),null,m.getValue(),null,null);
+        }
+
+        Toast.makeText(getApplicationContext(), "SMS sent.",
+                Toast.LENGTH_LONG).show();
+    }
+
     public void triggerEmergency(View v){
         ViewGroup parentItem = (ViewGroup) v.getParent();
         TextView emerMessage = (TextView) parentItem.findViewById(R.id.Description);
@@ -182,6 +199,9 @@ public class HomeActivity extends AppCompatActivity {
                             0);
                 }
         }
+            else{
+                sendTexts();
+            }
 
     }
 @Override
@@ -192,13 +212,7 @@ public void onRequestPermissionsResult(int requestCode,String permissions[], int
         case 0: {
             if (grantResults.length > 0
                     && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                getCurrentLocation();
-                SmsManager smsManager = SmsManager.getDefault();
-                for(Map.Entry<String,String> m:numDict.entrySet()){
-                    smsManager.sendTextMessage(m.getKey(),null,m.getValue(),null,null);
-                }
-                Toast.makeText(getApplicationContext(), "SMS sent.",
-                        Toast.LENGTH_LONG).show();
+                sendTexts();
             } else {
                 Toast.makeText(getApplicationContext(),
                         "SMS failed, please try again.", Toast.LENGTH_LONG).show();
@@ -208,4 +222,7 @@ public void onRequestPermissionsResult(int requestCode,String permissions[], int
     }
 
 }
+
+
+
 }

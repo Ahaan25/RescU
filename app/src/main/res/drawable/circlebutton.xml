@@ -1,12 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
-<selector xmlns:android="http://schemas.android.com/apk/res/android">
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
     <item>
         <shape android:shape="rectangle">
             <corners android:radius="1000dp"/>
-            <solid android:color="#9EDEC6"/>
+            <solid android:color="#7BA7FC"/>
             <stroke
                 android:width="2dp"
-                android:color="#000000" />
+                android:color="#7BA7FC" />
         </shape>
     </item>
-</selector>
+
+    <item android:left="15dp"
+        android:right="15dp">
+        <shape android:shape="line">
+            <stroke
+                android:width="5dp"
+                android:color="#FFFFFF" />
+        </shape>
+    </item>
+
+    <item android:left="15dp"
+        android:right="15dp">
+        <rotate xmlns:android="http://schemas.android.com/apk/res/android"
+            android:fromDegrees="90"
+            android:toDegrees="90">
+            <shape android:shape="line">
+                <stroke
+                    android:width="5dp"
+                    android:color="#FFFFFF" />
+            </shape>
+        </rotate>
+    </item>
+
+</layer-list>
