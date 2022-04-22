@@ -97,6 +97,7 @@ public class HomeActivity extends AppCompatActivity {
             itemsAdapter = new EmergencyAdapter(this,emergencies);
 
         }
+
         lsView.setAdapter(itemsAdapter);
         button = findViewById(R.id.button);
 
@@ -105,15 +106,10 @@ public class HomeActivity extends AppCompatActivity {
         );
 
         if (ActivityCompat.checkSelfPermission(HomeActivity.this, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(HomeActivity.this, Manifest.permission.ACCESS_COARSE_LOCATION) == PackageManager.PERMISSION_GRANTED){
-            //When both permission are granted
-            //call method
             getCurrentLocation();
         }else{
             ActivityCompat.requestPermissions(HomeActivity.this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION,Manifest.permission.ACCESS_COARSE_LOCATION} , 100);
         }
-
-
-
     }
 
 
