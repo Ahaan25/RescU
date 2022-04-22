@@ -14,6 +14,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Switch;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationServices;
@@ -83,6 +84,12 @@ public class DefineEmergency extends AppCompatActivity{
         button2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                /*
+                if(checkphonenumbers()){
+                    Toast.makeText(DefineEmergency.this, "Please fill in all fields.",Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                */
                 Intent intent=new Intent(DefineEmergency.this, HomeActivity.class);
                 st=eN.getText().toString();
                 emerItem.EmergencyName = st;
@@ -146,4 +153,15 @@ public class DefineEmergency extends AppCompatActivity{
             }
         });
     }
+
+    /*
+    public boolean checkphonenumbers(){
+        if(eP.getText().toString()==""||eP2.getText().toString()==""||eP3.getText().toString()==""){
+            return false;
+        }
+        else{
+            return true;
+        }
+    }
+    */
 }
