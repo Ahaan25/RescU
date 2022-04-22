@@ -15,7 +15,8 @@
         android:stateListAnimator="@null"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-    android:background="@drawable/round">
+    android:background="@drawable/round"
+        android:onClick="triggerEmergency">
 
 
         <TextView

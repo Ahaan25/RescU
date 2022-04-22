@@ -168,7 +168,9 @@ public class HomeActivity extends AppCompatActivity {
         SmsManager smsManager = SmsManager.getSmsManagerForSubscriptionId(defaultSubscriptionId);
 
         for(Map.Entry<String,String> m:numDict.entrySet()){
-            smsManager.sendTextMessage(m.getKey(),null,m.getValue(),null,null);
+            if(m.getKey()!=""){
+                smsManager.sendTextMessage(m.getKey(),null,m.getValue(),null,null);
+            }
         }
 
         Toast.makeText(getApplicationContext(), "SMS sent.",
