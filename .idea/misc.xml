@@ -3,24 +3,13 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Android Studio/ProjectRescu/app/src/main/res/drawable/circlebutton.xml" value="0.181" />
-        <entry key="..\:/Android Studio/ProjectRescu/app/src/main/res/drawable/textview_border.xml" value="0.2555" />
-        <entry key="..\:/Android Studio/ProjectRescu/app/src/main/res/drawable/textview_border_2.xml" value="0.2555" />
-        <entry key="..\:/Android Studio/ProjectRescu/app/src/main/res/layout/activity_define_emergency.xml" value="0.25" />
-        <entry key="..\:/Android Studio/ProjectRescu/app/src/main/res/layout/activity_gesturescreen.xml" value="0.25" />
-        <entry key="..\:/Android Studio/ProjectRescu/app/src/main/res/layout/activity_home.xml" value="0.264" />
-        <entry key="..\:/Android Studio/ProjectRescu/app/src/main/res/layout/activity_main.xml" value="0.25" />
-        <entry key="..\:/Projcts/PE-II/app/src/main/res/drawable/circlebutton.xml" value="0.124" />
-        <entry key="..\:/Projcts/PE-II/app/src/main/res/drawable/dropshadowitem.xml" value="0.2415" />
-        <entry key="..\:/Projcts/PE-II/app/src/main/res/drawable/round.xml" value="0.2265" />
-        <entry key="..\:/Projcts/PE-II/app/src/main/res/layout/activity_define_emergency.xml" value="0.264" />
-        <entry key="..\:/Projcts/PE-II/app/src/main/res/layout/activity_gesturescreen.xml" value="0.25416666666666665" />
-        <entry key="..\:/Projcts/PE-II/app/src/main/res/layout/activity_home.xml" value="0.264" />
-        <entry key="..\:/Projcts/PE-II/app/src/main/res/layout/list_item.xml" value="0.264" />
+        <entry key="..\:/Android Studio/RescuUpdated/app/src/main/res/layout/activity_define_emergency.xml" value="0.25" />
+        <entry key="..\:/Android Studio/RescuUpdated/app/src/main/res/layout/activity_gesturescreen.xml" value="0.25" />
+        <entry key="..\:/Android Studio/RescuUpdated/app/src/main/res/layout/activity_main.xml" value="0.25" />
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="11" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">
