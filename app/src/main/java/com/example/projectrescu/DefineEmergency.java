@@ -84,12 +84,12 @@ public class DefineEmergency extends AppCompatActivity{
         button2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                /*
-                if(checkphonenumbers()){
+
+                if(!checkphonenumbers()){
                     Toast.makeText(DefineEmergency.this, "Please fill in all fields.",Toast.LENGTH_SHORT).show();
                     return;
                 }
-                */
+
                 Intent intent=new Intent(DefineEmergency.this, HomeActivity.class);
                 st=eN.getText().toString();
                 emerItem.EmergencyName = st;
@@ -154,14 +154,14 @@ public class DefineEmergency extends AppCompatActivity{
         });
     }
 
-    /*
+
     public boolean checkphonenumbers(){
-        if(eP.getText().toString()==""||eP2.getText().toString()==""||eP3.getText().toString()==""){
+        if(eP.getText().toString().equals("")||eP2.getText().toString().equals("")||eP3.getText().toString().equals("")){
             return false;
         }
         else{
             return true;
         }
     }
-    */
+
 }
