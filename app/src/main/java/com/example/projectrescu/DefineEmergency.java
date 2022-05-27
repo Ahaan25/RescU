@@ -83,9 +83,9 @@ public class DefineEmergency extends AppCompatActivity{
                 }
                 Intent intent=new Intent(DefineEmergency.this, HomeActivity.class);
                 st=eN.getText().toString();
-                emerItem.EmergencyName = st;
+                emerItem.EmergencyName=st;
                 st=eD.getText().toString();
-                emerItem.EmergencyMessage = st;
+                emerItem.EmergencyMessage=st;
                 st=eP.getText().toString();
                 emerItem.phoneNumbers[0]=st;
                 st=eP2.getText().toString();
@@ -96,7 +96,7 @@ public class DefineEmergency extends AppCompatActivity{
                 currentEmergencies.add(emerItem);
                 try{
                     out = new ObjectOutputStream(new FileOutputStream(new File(getFilesDir(),"")+File.separator+filename));
-                    Emergency[] emer = new Emergency[currentEmergencies.size()];
+                    Emergency[] emer=new Emergency[currentEmergencies.size()];
                     currentEmergencies.toArray(emer);
                     out.writeObject(emer);
                     out.close();
