@@ -56,12 +56,12 @@ import java.util.Map;
 
 
 public class HomeActivity extends AppCompatActivity {
-    private ArrayList<Emergency> emergencies = new ArrayList<>();
+    private ArrayList<Emergency> emergencies=new ArrayList<>();
     private EmergencyAdapter itemsAdapter;
     private ListView lsView;
     FusedLocationProviderClient fusedLocationProviderClient;
-    Map<String, String> numDict  = new HashMap<String, String>();
-    String filename = "dataFile.srl";
+    Map<String, String> numDict =new HashMap<String, String>();
+    String filename="dataFile.srl";
 
     TextView outp;
     public static String st;
@@ -71,11 +71,11 @@ public class HomeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         try {
-            File dataStore = new File(getFilesDir(),"" + File.separator + filename);
+            File dataStore=new File(getFilesDir(),"" + File.separator + filename);
             dataStore.createNewFile();
             ObjectInputStream input = new ObjectInputStream(new FileInputStream(dataStore));
-            Emergency[] emer = (Emergency[]) input.readObject();
-            emergencies = new ArrayList<Emergency>(Arrays.asList(emer));
+            Emergency[] emer=(Emergency[]) input.readObject();
+            emergencies=new ArrayList<Emergency>(Arrays.asList(emer));
             Log.d("check",emergencies.get(0).EmergencyName);
             input.close();
         }
@@ -93,13 +93,13 @@ public class HomeActivity extends AppCompatActivity {
         }
 
         setContentView(R.layout.activity_home);
-        lsView = (ListView) findViewById(R.id.lvItems);
+        lsView=(ListView) findViewById(R.id.lvItems);
         if(emergencies!=null){
-            itemsAdapter = new EmergencyAdapter(this,emergencies);
+            itemsAdapter=new EmergencyAdapter(this,emergencies);
         }
 
         lsView.setAdapter(itemsAdapter);
-        button = findViewById(R.id.button);
+        button=findViewById(R.id.button);
 
         fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(HomeActivity.this);
 
@@ -112,29 +112,20 @@ public class HomeActivity extends AppCompatActivity {
     }
 
     @SuppressLint("MissingPermission")
-    private void getCurrentLocation() {
-        // Initialize location manager
-        LocationManager locationManager = (LocationManager) getSystemService(
+    private void getCurrentLocation(){
+        LocationManager locationManager=(LocationManager) getSystemService(
                 Context.LOCATION_SERVICE
         );
-        //Check Condition
-        if(locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER)
-                || locationManager.isProviderEnabled(LocationManager.NETWORK_PROVIDER)){
-            //when Location service is enabled
-            // get last location
+        if(locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER)||locationManager.isProviderEnabled(LocationManager.NETWORK_PROVIDER)){
             fusedLocationProviderClient.getLastLocation().addOnCompleteListener(new OnCompleteListener<Location>() {
                 @Override
                 public void onComplete(@NonNull Task<Location> task) {
-                    // Initialize  location
                     Location location = task.getResult();
-                    // check condition
                     if(location!=null){
-                        //When location result is not null
-                        //set latitude
-                        double latitude = location.getLatitude();
-                        double longitude = location.getLongitude();
+                        double latitude=location.getLatitude();
+                        double longitude=location.getLongitude();
 
-                        st= "https://maps.google.com/?q="+latitude+","+longitude;
+                        st="https://maps.google.com/?q="+latitude+","+longitude;
 
 
                     }
@@ -155,7 +146,7 @@ public class HomeActivity extends AppCompatActivity {
     }
 
     public void AddToDict(String message,String[] numbers){
-        for (String number : numbers) {
+        for (String number:numbers) {
             numDict.put(number,message);
         }
     }
@@ -163,8 +154,8 @@ public class HomeActivity extends AppCompatActivity {
     public void sendTexts(){
         getCurrentLocation();
 
-        int defaultSubscriptionId = SmsManager.getDefaultSmsSubscriptionId();
-        SmsManager smsManager = SmsManager.getSmsManagerForSubscriptionId(defaultSubscriptionId);
+        int defaultSubscriptionId=SmsManager.getDefaultSmsSubscriptionId();
+        SmsManager smsManager=SmsManager.getSmsManagerForSubscriptionId(defaultSubscriptionId);
 
         for(Map.Entry<String,String> m:numDict.entrySet()){
             if(m.getKey()!=""){
@@ -172,35 +163,28 @@ public class HomeActivity extends AppCompatActivity {
             }
         }
 
-        Toast.makeText(getApplicationContext(), "SMS sent.",
-                Toast.LENGTH_LONG).show();
+        Toast.makeText(getApplicationContext(), "SMS sent.", Toast.LENGTH_LONG).show();
     }
 
     public void triggerEmergency(View v){
-        ViewGroup parentItem = (ViewGroup) v.getParent();
-        TextView emerMessage = (TextView) parentItem.findViewById(R.id.Description);
-        TextView emerPhone = (TextView) parentItem.findViewById(R.id.PhoneNumbers);
-        String phoneNums = emerPhone.getText().toString();
-        String message = emerMessage.getText().toString();
-        message = message + System.lineSeparator() +"Location of person : - "+ st;
-        String[] phoneNumbers = phoneNums.split(" ",0);
+        ViewGroup parentItem=(ViewGroup) v.getParent();
+        TextView emerMessage=parentItem.findViewById(R.id.Description);
+        TextView emerPhone=parentItem.findViewById(R.id.PhoneNumbers);
+        String phoneNums=emerPhone.getText().toString();
+        String message=emerMessage.getText().toString();
+        message=message+System.lineSeparator() +"Location of person : - "+ st;
+        String[] phoneNumbers=phoneNums.split(" ",0);
         AddToDict(message,phoneNumbers);
-            if (ContextCompat.checkSelfPermission(this,
-                    Manifest.permission.SEND_SMS)
-                    != PackageManager.PERMISSION_GRANTED) {
-                if (ActivityCompat.shouldShowRequestPermissionRationale(this,
-                        Manifest.permission.SEND_SMS)) {
+            if (ContextCompat.checkSelfPermission(this, Manifest.permission.SEND_SMS)!=PackageManager.PERMISSION_GRANTED) {
+                if (ActivityCompat.shouldShowRequestPermissionRationale(this, Manifest.permission.SEND_SMS)) {
                 }
                 else {
-                    ActivityCompat.requestPermissions(this,
-                            new String[]{Manifest.permission.SEND_SMS},
-                            0);
+                    ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.SEND_SMS}, 0);
                 }
         }
             else{
                 sendTexts();
             }
-
     }
 
     @Override
@@ -209,8 +193,7 @@ public class HomeActivity extends AppCompatActivity {
 
         switch (requestCode) {
             case 0: {
-                if (grantResults.length > 0
-                        && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                if (grantResults.length >0&&grantResults[0]==PackageManager.PERMISSION_GRANTED) {
                     sendTexts();
                 }
                 else {
