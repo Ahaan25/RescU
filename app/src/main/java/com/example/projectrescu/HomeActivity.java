@@ -111,7 +111,6 @@ public class HomeActivity extends AppCompatActivity {
         }
     }
 
-
     @SuppressLint("MissingPermission")
     private void getCurrentLocation() {
         // Initialize location manager
@@ -203,6 +202,7 @@ public class HomeActivity extends AppCompatActivity {
             }
 
     }
+
     @Override
     public void onRequestPermissionsResult(int requestCode,String permissions[], int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
