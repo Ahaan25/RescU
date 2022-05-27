@@ -66,12 +66,12 @@ public class DefineEmergency extends AppCompatActivity{
             e.printStackTrace();
         }
         setContentView(R.layout.activity_define_emergency);
-        button2=(Button) findViewById(R.id.button2);
-        eN=(EditText) findViewById(R.id.emerName);
-        eD=(EditText) findViewById(R.id.emerDesc);
-        eP=(EditText) findViewById(R.id.emerNum);
-        eP2=(EditText) findViewById(R.id.emerNum2);
-        eP3=(EditText) findViewById(R.id.emerNum3);
+        button2=findViewById(R.id.button2);
+        eN=findViewById(R.id.emerName);
+        eD=findViewById(R.id.emerDesc);
+        eP=findViewById(R.id.emerNum);
+        eP2=findViewById(R.id.emerNum2);
+        eP3=findViewById(R.id.emerNum3);
 
         button2.setOnClickListener(new View.OnClickListener() {
             @Override
