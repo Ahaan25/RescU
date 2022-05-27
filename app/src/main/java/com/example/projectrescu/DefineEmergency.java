@@ -57,12 +57,13 @@ public class DefineEmergency extends AppCompatActivity{
         catch(FileNotFoundException e){
             e.printStackTrace();
         }
-        catch(EOFException e){}
+        catch(EOFException e){
 
-        catch (IOException e) {
+        }
+        catch (IOException e){
             e.printStackTrace();
         }
-        catch (ClassNotFoundException e) {
+        catch (ClassNotFoundException e){
             e.printStackTrace();
         }
         setContentView(R.layout.activity_define_emergency);
@@ -73,9 +74,9 @@ public class DefineEmergency extends AppCompatActivity{
         eP2=findViewById(R.id.emerNum2);
         eP3=findViewById(R.id.emerNum3);
 
-        button2.setOnClickListener(new View.OnClickListener() {
+        button2.setOnClickListener(new View.OnClickListener(){
             @Override
-            public void onClick(View view) {
+            public void onClick(View view){
 
                 if(!checkphonenumbers()){
                     Toast.makeText(DefineEmergency.this, "Please fill in all fields.",Toast.LENGTH_SHORT).show();
