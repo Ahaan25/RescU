@@ -202,25 +202,22 @@ public class HomeActivity extends AppCompatActivity {
             }
 
     }
-@Override
-public void onRequestPermissionsResult(int requestCode,String permissions[], int[] grantResults) {
-    super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+    @Override
+    public void onRequestPermissionsResult(int requestCode,String permissions[], int[] grantResults) {
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
 
-    switch (requestCode) {
-        case 0: {
-            if (grantResults.length > 0
-                    && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                sendTexts();
-            } else {
-                Toast.makeText(getApplicationContext(),
-                        "SMS failed, please try again.", Toast.LENGTH_LONG).show();
-                return;
+        switch (requestCode) {
+            case 0: {
+                if (grantResults.length > 0
+                        && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
+                    sendTexts();
+                } else {
+                    Toast.makeText(getApplicationContext(),
+                                "SMS failed, please try again.", Toast.LENGTH_LONG).show();
+                    return;
+                }
             }
         }
     }
-
-}
-
-
 
 }
