@@ -11,6 +11,8 @@ import java.util.ArrayList;
 
 public class EmergencyAdapter extends ArrayAdapter<Emergency> {
 
+    TextView eName, eDescription, eNumbers;
+
     private final Context context;
     private final ArrayList<Emergency> emergencies;
 
@@ -21,24 +23,23 @@ public class EmergencyAdapter extends ArrayAdapter<Emergency> {
     }
 
     public View getView(int position, View convertView, ViewGroup parent){
-        View rowView = convertView;
-        if(rowView == null){
-            LayoutInflater inflater = (LayoutInflater) context
-                    .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-             rowView = inflater.inflate(R.layout.list_item,parent,false);
+        View rowView=convertView;
+        if(rowView==null){
+            LayoutInflater inflater=(LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+             rowView=inflater.inflate(R.layout.list_item,parent,false);
         }
 
-        TextView eName = (TextView)  rowView.findViewById(R.id.Name);
-        TextView eDescription = (TextView) rowView.findViewById(R.id.Description);
-        TextView eNumbers = (TextView) rowView.findViewById(R.id.PhoneNumbers);
+        eName=rowView.findViewById(R.id.Name);
+        eDescription=rowView.findViewById(R.id.Description);
+        eNumbers=rowView.findViewById(R.id.PhoneNumbers);
         eName.setText(emergencies.get(position).EmergencyName);
         eDescription.setText(emergencies.get(position).EmergencyMessage);
-        String phoneString = "";
-        for ( String item : emergencies.get(position).phoneNumbers){
-            phoneString += (item+" ");
+        String phoneString="";
+        for (String item:emergencies.get(position).phoneNumbers){
+            phoneString+=(item+"");
         }
         eNumbers.setText(phoneString);
-
         return rowView;
     }
+
 }

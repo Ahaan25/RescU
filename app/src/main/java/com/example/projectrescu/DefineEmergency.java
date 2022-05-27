@@ -33,27 +33,19 @@ import java.util.Arrays;
 
 public class DefineEmergency extends AppCompatActivity{
     ObjectOutputStream out;
-    String filename = "dataFile.srl";
+    String filename = "dataFile.srl", st;
     Button button2;
-    EditText eN;
-    EditText eD;
-    EditText eP;
-    EditText eP2;
-    EditText eP3;
-    String st ;
+    EditText eN, eD, eP, eP2, eP3;
     Switch s;
 
     ArrayList<Emergency> currentEmergencies=new ArrayList<>();
     TextView loc;
-    Emergency emerItem = new Emergency();
-
+    Emergency emerItem=new Emergency();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_define_emergency);
-
-        
         try {
             File dataStore = new File(getFilesDir(),"" + File.separator + filename);
             dataStore.createNewFile();
@@ -69,17 +61,17 @@ public class DefineEmergency extends AppCompatActivity{
 
         catch (IOException e) {
             e.printStackTrace();
-        } catch (ClassNotFoundException e) {
+        }
+        catch (ClassNotFoundException e) {
             e.printStackTrace();
         }
         setContentView(R.layout.activity_define_emergency);
         button2=(Button) findViewById(R.id.button2);
         eN=(EditText) findViewById(R.id.emerName);
-        eD = (EditText) findViewById(R.id.emerDesc);
-        eP = (EditText) findViewById(R.id.emerNum);
-        eP2 = (EditText) findViewById(R.id.emerNum2);
-        eP3 = (EditText) findViewById(R.id.emerNum3);
-
+        eD=(EditText) findViewById(R.id.emerDesc);
+        eP=(EditText) findViewById(R.id.emerNum);
+        eP2=(EditText) findViewById(R.id.emerNum2);
+        eP3=(EditText) findViewById(R.id.emerNum3);
 
         button2.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -89,7 +81,6 @@ public class DefineEmergency extends AppCompatActivity{
                     Toast.makeText(DefineEmergency.this, "Please fill in all fields.",Toast.LENGTH_SHORT).show();
                     return;
                 }
-
                 Intent intent=new Intent(DefineEmergency.this, HomeActivity.class);
                 st=eN.getText().toString();
                 emerItem.EmergencyName = st;
@@ -101,7 +92,6 @@ public class DefineEmergency extends AppCompatActivity{
                 emerItem.phoneNumbers[1]=st;
                 st=eP3.getText().toString();
                 emerItem.phoneNumbers[2]=st;
-
 
                 currentEmergencies.add(emerItem);
                 try{
@@ -117,8 +107,6 @@ public class DefineEmergency extends AppCompatActivity{
                 catch(IOException e){
                     e.printStackTrace();
                 }
-
-
               // intent.putExtra("Emergency: ", st);
                 startActivity(intent);
                 finish();

@@ -87,7 +87,8 @@ public class HomeActivity extends AppCompatActivity {
         }
         catch (IOException e) {
             e.printStackTrace();
-        } catch (ClassNotFoundException e) {
+        }
+        catch (ClassNotFoundException e) {
             e.printStackTrace();
         }
 
@@ -95,19 +96,17 @@ public class HomeActivity extends AppCompatActivity {
         lsView = (ListView) findViewById(R.id.lvItems);
         if(emergencies!=null){
             itemsAdapter = new EmergencyAdapter(this,emergencies);
-
         }
 
         lsView.setAdapter(itemsAdapter);
         button = findViewById(R.id.button);
 
-        fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(
-                HomeActivity.this
-        );
+        fusedLocationProviderClient = LocationServices.getFusedLocationProviderClient(HomeActivity.this);
 
         if (ActivityCompat.checkSelfPermission(HomeActivity.this, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(HomeActivity.this, Manifest.permission.ACCESS_COARSE_LOCATION) == PackageManager.PERMISSION_GRANTED){
             getCurrentLocation();
-        }else{
+        }
+        else{
             ActivityCompat.requestPermissions(HomeActivity.this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION,Manifest.permission.ACCESS_COARSE_LOCATION} , 100);
         }
     }
@@ -144,7 +143,8 @@ public class HomeActivity extends AppCompatActivity {
                 }
             });
 
-        }else{
+        }
+        else{
             startActivity(new Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS).setFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
         }
     }
@@ -191,7 +191,8 @@ public class HomeActivity extends AppCompatActivity {
                     != PackageManager.PERMISSION_GRANTED) {
                 if (ActivityCompat.shouldShowRequestPermissionRationale(this,
                         Manifest.permission.SEND_SMS)) {
-                } else {
+                }
+                else {
                     ActivityCompat.requestPermissions(this,
                             new String[]{Manifest.permission.SEND_SMS},
                             0);
@@ -211,7 +212,8 @@ public class HomeActivity extends AppCompatActivity {
                 if (grantResults.length > 0
                         && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                     sendTexts();
-                } else {
+                }
+                else {
                     Toast.makeText(getApplicationContext(),
                                 "SMS failed, please try again.", Toast.LENGTH_LONG).show();
                     return;
