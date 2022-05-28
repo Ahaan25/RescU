@@ -197,8 +197,7 @@ public class HomeActivity extends AppCompatActivity {
                     sendTexts();
                 }
                 else {
-                    Toast.makeText(getApplicationContext(),
-                                "SMS failed, please try again.", Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(), "SMS failed, please try again.", Toast.LENGTH_LONG).show();
                     return;
                 }
             }

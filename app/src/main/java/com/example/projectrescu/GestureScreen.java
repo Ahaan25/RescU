@@ -16,6 +16,8 @@ public class GestureScreen extends AppCompatActivity {
         setContentView(R.layout.activity_gesturescreen);
     }
 
+    /*
+    //storing gestures code here
     public boolean onTouchEvent(MotionEvent touchevent){
         switch (touchevent.getAction()){
             case MotionEvent.ACTION_DOWN:
@@ -49,5 +51,6 @@ public class GestureScreen extends AppCompatActivity {
         }
         return false;
     }
+    */
 
 }
