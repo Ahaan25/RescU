@@ -78,10 +78,6 @@ public class DefineEmergency extends AppCompatActivity{
             @Override
             public void onClick(View view){
 
-                if(!checkphonenumbers()){
-                    Toast.makeText(DefineEmergency.this, "Please fill in all fields.",Toast.LENGTH_SHORT).show();
-                    return;
-                }
                 Intent intent=new Intent(DefineEmergency.this, HomeActivity.class);
                 st=eN.getText().toString();
                 emerItem.EmergencyName=st;

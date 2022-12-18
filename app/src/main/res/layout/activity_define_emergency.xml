@@ -7,7 +7,6 @@
     android:background="@color/white"
     tools:context=".DefineEmergency">
 
-  */
 
   <EditText
       android:id="@+id/emerNum2"
@@ -17,7 +16,7 @@
       android:layout_marginTop="340dp"
       android:ems="10"
       android:hint="Contact number"
-      android:inputType="textPersonName"
+      android:inputType="number"
       android:textColor="@color/black"
       android:textColorHint="#808080"
       app:layout_constraintStart_toStartOf="parent"
@@ -31,7 +30,7 @@
       android:layout_marginTop="292dp"
       android:ems="10"
       android:hint="Contact number"
-      android:inputType="textPersonName"
+      android:inputType="number"
       android:textColor="@color/black"
       android:textColorHint="#808080"
       app:layout_constraintStart_toStartOf="parent"
@@ -99,7 +98,7 @@
       android:layout_marginTop="240dp"
       android:ems="10"
       android:hint="Contact number"
-      android:inputType="textPersonName"
+      android:inputType="number"
       android:textColor="@color/black"
       android:textColorHint="#808080"
       app:layout_constraintStart_toStartOf="parent"

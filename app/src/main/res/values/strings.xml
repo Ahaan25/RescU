@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Rescu Changed</string>
+    <string name="app_name">WeSafe</string>
     <string name="title_activity_gesturescreen">gesturescreen</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
