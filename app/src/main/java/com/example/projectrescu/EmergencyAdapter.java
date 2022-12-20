@@ -33,7 +33,6 @@ public class EmergencyAdapter extends ArrayAdapter<Emergency> {
         eName=rowView.findViewById(R.id.Name);
         eDescription=rowView.findViewById(R.id.Description);
         eNumbers=rowView.findViewById(R.id.PhoneNumbers);
-        //eLocation=rowView.findViewById(R.id.Location);
         eName.setText(emergencies.get(position).EmergencyName);
         eDescription.setText(emergencies.get(position).EmergencyMessage);
         String phoneString="";
@@ -41,11 +40,6 @@ public class EmergencyAdapter extends ArrayAdapter<Emergency> {
             phoneString+=(item+"");
         }
         eNumbers.setText(phoneString);
-        /*
-        if(locshared.cecklocationservices()){
-            return eLocation.setText(emergencies.get(position).Location);
-        }
-        */
         return rowView;
     }
 

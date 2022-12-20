@@ -36,7 +36,6 @@ public class DefineEmergency extends AppCompatActivity{
     String filename = "dataFile.srl", st;
     Button button2;
     EditText eN, eD, eP, eP2, eP3;
-    //EditText eLoc;
     Switch s;
 
     ArrayList<Emergency> currentEmergencies=new ArrayList<>();
@@ -90,8 +89,6 @@ public class DefineEmergency extends AppCompatActivity{
                 emerItem.phoneNumbers[1]=st;
                 st=eP3.getText().toString();
                 emerItem.phoneNumbers[2]=st;
-                //st=eLoc.getText().toString();
-                //emerItem.Location.toString();
 
                 currentEmergencies.add(emerItem);
                 try{

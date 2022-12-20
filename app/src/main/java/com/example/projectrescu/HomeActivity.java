@@ -125,15 +125,10 @@ public class HomeActivity extends AppCompatActivity {
                     if(location!=null){
                         double latitude=location.getLatitude();
                         double longitude=location.getLongitude();
-
                         st="https://maps.google.com/?q="+latitude+","+longitude;
-
-
                     }
-
                 }
             });
-
         }
         else{
             startActivity(new Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS).setFlags(Intent.FLAG_ACTIVITY_NEW_TASK));
@@ -153,12 +148,6 @@ public class HomeActivity extends AppCompatActivity {
     }
 
     public void sendTexts(){
-
-        /*
-        if(checklocation.cecklocationservices()){
-            getCurrentLocation();
-        }
-        */
 
         getCurrentLocation();
 
