@@ -59,6 +59,7 @@ public class HomeActivity extends AppCompatActivity {
     private ArrayList<Emergency> emergencies=new ArrayList<>();
     private EmergencyAdapter itemsAdapter;
     private ListView lsView;
+    public DefineEmergency checklocation;
     FusedLocationProviderClient fusedLocationProviderClient;
     Map<String, String> numDict =new HashMap<String, String>();
     String filename="dataFile.srl";
@@ -152,6 +153,13 @@ public class HomeActivity extends AppCompatActivity {
     }
 
     public void sendTexts(){
+
+        /*
+        if(checklocation.cecklocationservices()){
+            getCurrentLocation();
+        }
+        */
+
         getCurrentLocation();
 
         int defaultSubscriptionId=SmsManager.getDefaultSmsSubscriptionId();

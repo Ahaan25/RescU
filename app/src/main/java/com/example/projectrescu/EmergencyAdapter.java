@@ -11,10 +11,11 @@ import java.util.ArrayList;
 
 public class EmergencyAdapter extends ArrayAdapter<Emergency> {
 
-    TextView eName, eDescription, eNumbers;
+    TextView eName, eDescription, eNumbers, eLocation;
 
     private final Context context;
     private final ArrayList<Emergency> emergencies;
+    public DefineEmergency locshared;
 
     public EmergencyAdapter(Context context, ArrayList<Emergency> eList){
         super(context,0,eList);
@@ -32,6 +33,7 @@ public class EmergencyAdapter extends ArrayAdapter<Emergency> {
         eName=rowView.findViewById(R.id.Name);
         eDescription=rowView.findViewById(R.id.Description);
         eNumbers=rowView.findViewById(R.id.PhoneNumbers);
+        //eLocation=rowView.findViewById(R.id.Location);
         eName.setText(emergencies.get(position).EmergencyName);
         eDescription.setText(emergencies.get(position).EmergencyMessage);
         String phoneString="";
@@ -39,6 +41,11 @@ public class EmergencyAdapter extends ArrayAdapter<Emergency> {
             phoneString+=(item+"");
         }
         eNumbers.setText(phoneString);
+        /*
+        if(locshared.cecklocationservices()){
+            return eLocation.setText(emergencies.get(position).Location);
+        }
+        */
         return rowView;
     }
 
